@@ -15,3 +15,13 @@
 
   ## Subir a git hub
   
+  - gh repo create
+
+## Clonar un repositorio
+
+- git clone `<url>`
+
+## Loguear en github
+
+- gh auth login
+  - iniciamos con HTTPS
