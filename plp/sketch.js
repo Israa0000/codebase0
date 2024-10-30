@@ -1,13 +1,16 @@
 function setup() {
     createCanvas(400, 400);
+    background(220);
   }
   
   function draw() {
-    background(220);
-    ellipse(mouseX, mouseY, 20)
-    rect(width/2, height/2, mouseX)
-    triangle(0, height, width/2, 0, width, height)
-    line(0,0, width,height)
-    console.log(frameCount%6)
-    ellipse(frameCount%witdh, 0, 100)
+    console.log(sin(frameCount/20) * 100)
+    const velocidad = 2
+    const amplitud = 100
+    const posX = width/2
+    //ellipse(cos(frameCount/20) * 100 + 200, frameCount, 1)
+    //ellipse(sin(frameCount/20) * 100 + 200, frameCount, 1)
+    ellipse(noise(frameCount/velocidad) * amplitud + posX, frameCount, 1)
+    ellipse(noise(frameCount/velocidad) * amplitud + posX, frameCount, 1)
+
   }
