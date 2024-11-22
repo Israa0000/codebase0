@@ -1,0 +1,17 @@
+accion(){
+- seleccionar input
+- alamcenar valor actual
+- seleccionar contenedor
+- crear un <p>-</p>
+- mandamos el valor captado a <p>-</p>
+- lo metemos en el <body>-</body>
+}
+
+# HTML #
+<input type=text>
+
+# JS # 
+user_input
+
+Seleccionar lineas shift + direccion
+Mover lineas alt + direccion
