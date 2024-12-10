@@ -1,0 +1,29 @@
+Datos: esq1, esq2, esq3, esq4, h, v, ancho, alto.
+Resolucion:
+Operacion 
+Solucion
+
+
+
+
+        //const simbolos = [esquina1, esquina2, esquina3, esquina4, horizpontal, vertical];
+       // const diccionario = {
+          //  esquina1 = "╔"
+          //  esquina2 = "╗"
+          //  esquina3 = "╚"
+          //  esquina4 = "╝"
+          //  horizontal = "═"
+           // vertical = "║"
+        //}
+
+
+
+
+
+
+
+
+   document.querySelector('button').addEventListener('click', function() {
+            puntos++; // Incrementar los puntos
+            document.querySelector('p').textContent = 'Puntos: ' + puntos; // Actualizar el contenido del párrafo
+        });
