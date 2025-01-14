@@ -8,35 +8,60 @@ fetch('https://dummyjson.com/recipes/1')//fetch devuelve una promesa
     const h1 =document.createElement("h1")
     h1.innerText = nombre
     document.body.appendChild(h1)
+    
+    //imagen
+    const imagen = data.image
+    const imgImagen = document.createElement("img")
+    imgImagen.src = imagen 
+    document.body.appendChild(imgImagen)
 
     //dificultad
     const dificultad = data.difficulty
     const p1 = document.createElement("p")
-    p1.innerText = dificultad
+    p1.innerText = "Difficulty" + ":" + dificultad
     document.body.appendChild(p1)
     
     //ingredientes
     const ingredientes = data.ingredients
     const ulIngredientes = document.createElement("ul")
-    ulIngredientes.innerText = ingredientes
+    //ulIngredientes.innerText = ingredientes  //no lo quiero asignar todo 
+    //como texto dentro del <ul>
+    //quiero crear un <li> para cada ingrediente dentro de ese <ul>
     document.body.appendChild(ulIngredientes)
+
+    //crear la lista de ingredientes
     for (let i = 0; i < ingredientes.length; i++) {
         liIngredientes = document.createElement("li")
-        console.log(ingredientes[i]) // Imprime los números del 0 al 4
+        liIngredientes.innerText = ingredientes[i]
+        ulIngredientes.appendChild(liIngredientes)
+        console.log(ingredientes[i])
       }
       
-    console.log(ingredientes)
-    
+    //tiempo de preparacion
+    const tiempoPrep = data.prepTimeMinutes
+    const pTiempoPrep = document.createElement("p")
+    pTiempoPrep.innerText = "Preparation time" + ": " + tiempoPrep + " min"
+    document.body.appendChild(pTiempoPrep)
+
     //pasos
     const pasos = data.instructions
     const ulPasos = document.createElement("ul")
-    ulPasos.innerText = pasos
     document.body.appendChild(ulPasos)
 
-    //imagen
+    //lista de pasos
+    for (let i = 0; i < pasos.length; i++){
+        liPasos = document.createElement("li")
+        liPasos.innerText = pasos[i]
+        ulPasos.appendChild(liPasos)
 
-    //tiempo de preparacion
+    }
+
     //tiempo de coccion
+    const tiempoCoccion = data.cookTimeMinutes
+    const ptiempoCoccion = document.createElement("p")
+    ptiempoCoccion.innerText = "cooking time" + ": " + tiempoCoccion
+    document.body.appendChild(ptiempoCoccion)
+
     console.log(nombre) //comprobar lo q he guardado en la constante
 })
 
