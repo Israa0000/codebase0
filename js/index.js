@@ -53,7 +53,6 @@ fetch('https://dummyjson.com/recipes/1')//fetch devuelve una promesa
         liPasos = document.createElement("li")
         liPasos.innerText = pasos[i]
         ulPasos.appendChild(liPasos)
-
     }
 
     //tiempo de coccion
