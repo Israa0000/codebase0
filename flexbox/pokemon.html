@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemones</title>
+</head>
+<body>
+    <script>
+        /*const promesa = fetch("https://pokeapi.co/api/v2/pokemon/ditto")
+        console.log(promesa)
+        jsonpromesa = promesa.then(data => data.json())
+        console.log(jsonpromesa)
+        jsonpromesa.then(pokemon => console.log(pokemon))*/
+
+        fetch("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0")
+        .then(response => response.json()) // Primero, convertir la respuesta a JSON
+        .then(data => {
+            // Cuando los datos se han recibido, extraer los nombres de los Pokémon
+            const pokemonNames = data.results.map(pokemon => pokemon.name);
+            /*results es una propiedad de data que contiene un arreglo con los Pokémon.
+            Cada elemento de ese arreglo es un objeto que tiene, entre otras propiedades, 
+            el nombre del Pokémon.*/
+
+            // Mostrar la lista de nombres en la consola
+            console.log(pokemonNames);
+
+            // Crear un contenedor <ul> para mostrar los nombres en la página
+            const listaPokemon = document.createElement("ul");
+
+            // Crear un <li> por cada nombre de Pokémon
+            pokemonNames.forEach(name => {
+                const itemPokemon = document.createElement("li");
+                itemPokemon.textContent = name; // Usamos "name" en lugar de "pokemonNames"
+                listaPokemon.appendChild(itemPokemon);
+            });
+
+            // Agregar el contenedor <ul> al cuerpo del documento
+            document.body.appendChild(listaPokemon);
+        })
+
+        //DIA SIGUIENTE NOMBRE Y SPRITE
+        </script>
+</body>
+</html>

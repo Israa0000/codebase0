@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <style>
+        .div{ 
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        .rojo{
+            background: red;
+        }
+        .verde{
+            background: rgb(0, 255, 0);
+        }
+        .negro{
+            background: black;
+        }
+        .naranja{
+            background: orange
+        }
+        .rosa{
+            background: pink;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="rosa"></div>
+    <script>
+        //introducir 100 elementos div
+        const colores = ["rojo", "verde","negro","naranja","rosa"]
+        /*console.log("Math.random()",Math.random())
+        console.log("Math.random() * colores.length",Math.random() * colores.length 
+        */
+       for(let i=0; i < 6 ; i++){
+           const div = document.createElement("div")
+           const randomColor = colores[Math.floor(Math.random() * colores.length)]
+           div.classList.add("div", "rojo");
+           document.body.appendChild(div)
+        }
+        /*https://flexboxfroggy.com/#es*/
+    </script>
+</body>
+</html>
+
