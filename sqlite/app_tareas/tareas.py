@@ -12,3 +12,8 @@ def add_task(title, status, desc=None):
     c.execute("INSERT INTO tasks (title, description, status) VALUES (?, ?, ?)", 
               (title, desc, status))
     conn.commit()
+
+# TODO:
+# Funcion change_status
+# Funcion show_stats
+# Funcion delete_task
