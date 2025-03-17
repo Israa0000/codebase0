@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myChart"></canvas>
+    <section id="mediciones"></section>
+        <h2>Tiempo: 0</h2>
+        <p>Valor: 12</p>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        let datos = [
+        {tiempo: 0, valor: 12},
+        {tiempo: 1, valor: 15},
+        {tiempo: 2, valor: 18},
+        {tiempo: 3, valor: 21},
+        {tiempo: 4, valor: 24},
+        {tiempo: 5, valor: 17},
+        {tiempo: 6, valor: 30},
+        {tiempo: 7, valor: 33},
+        {tiempo: 8, valor: 36},
+        {tiempo: 9, valor: 39}
+    ]
+
+    
+  const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+        y: {
+            beginAtZero: true
+        }
+        }
+    }
+    });
+
+
+        const contenedorMediciones = document.getElementById("mediciones")
+
+    /*console.log(datos[0].valor);
+
+    for(let i =0; i <datos.length; i++){
+        console.log(datos[i].tiempo)
+        console.log(datos[i].valor)
+        console.log("------------------------")
+    }*/
+    
+    datos.forEach[valores => {
+        console.log(valores.tiempo)
+        console.log(valores.valor)
+        const h2 =document.createElement("h2")
+        const p = document.createElement("p")
+        h2.innerText = `Tiempo: ${valores.tiempo}`
+        h2.innerText = `Valor: ${valores.valor}`
+        contenedorMediciones.appendchild(h2)
+        contenedorMediciones.appendchild(p)
+        console.log("----------------------")
+    }]
+    </script>
+</body>
+</html>
