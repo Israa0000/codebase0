@@ -1,4 +1,5 @@
 # normalizacion bbdd
+
 ## Es el proceso de organizar los datos de manera eficiente para reducir la redundancia( datios repetidos) y mejorar la integridad de la base de datos. El objetivo de la normalizacion es estructurar tablas de manera que sean consistentes, evitando errores.
 
 ### 1FN
