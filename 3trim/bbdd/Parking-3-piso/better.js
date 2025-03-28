@@ -6,6 +6,6 @@ const respuesta = db.prepare('SELECT * FROM plazas').all();
 
 console.log(respuesta)
 
-//hola mundo con express( conseguri servidor de express que devuelva un hola mundo)
+// hola mundo con express(conseguir servidor de express que devuelva un hola mundo)
 // endpoint /plazas que devuelva el resltado de  
 // const respuesta = db.prepare('SELECT * FROM plazas').all();

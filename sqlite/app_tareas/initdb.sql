@@ -3,4 +3,4 @@ CREATE IF NOT EXISTS tasks(
     title TEXT NOT NULL,
     description TEXT,
     status TEXT NOT NULL
-);
+); 

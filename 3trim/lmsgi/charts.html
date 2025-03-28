@@ -24,6 +24,13 @@
         {tiempo: 8, valor: 36},
         {tiempo: 9, valor: 39}
     ]
+    let labels = []
+    let data = []
+
+    datos.forEach(valores => 
+        labels.push(valores.tiempo)
+        data.push(valores.tiempo)
+    )
 
     
   const ctx = document.getElementById('myChart');

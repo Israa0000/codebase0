@@ -1,0 +1,91 @@
+// Crear y agregar el nombre de la receta
+            const nombre = data.name;
+            const h1 = document.createElement("h1");
+            h1.innerText = nombre;
+            document.body.appendChild(h1);
+
+            // Crear y agregar la imagen de la receta
+            const imagen = data.image;
+            const imgImagen = document.createElement("img");
+            imgImagen.src = imagen;
+            document.body.appendChild(imgImagen);
+
+            // Crear y agregar la dificultad
+            const dificultad = data.difficulty;
+            const p1 = document.createElement("p");
+            p1.innerText = "Difficulty: " + dificultad;
+            document.body.appendChild(p1);
+
+            // Crear y agregar los ingredientes
+            const ingredientes = data.ingredients;
+            const ulIngredientes = document.createElement("ul");
+            document.body.appendChild(ulIngredientes);
+
+            // Crear una lista de ingredientes
+            ingredientes.forEach(ingrediente => {
+                const liIngrediente = document.createElement("li");
+                liIngrediente.innerText = ingrediente;
+                ulIngredientes.appendChild(liIngrediente);
+            });
+
+            // Crear y agregar el tiempo de preparación
+            const tiempoPrep = data.prepTimeMinutes;
+            const pTiempoPrep = document.createElement("p");
+            pTiempoPrep.innerText = "Preparation time: " + tiempoPrep + " min";
+            document.body.appendChild(pTiempoPrep);
+
+            // Crear y agregar los pasos
+            const pasos = data.instructions;
+            const ulPasos = document.createElement("ul");
+            document.body.appendChild(ulPasos);
+
+            pasos.forEach(paso => {
+                const liPaso = document.createElement("li");
+                liPaso.innerText = paso;
+                ulPasos.appendChild(liPaso);
+            });
+
+            // Crear y agregar el tiempo de cocción
+            const tiempoCoccion = data.cookTimeMinutes;
+            const pTiempoCoccion = document.createElement("p");
+            pTiempoCoccion.innerText = "Cooking time: " + tiempoCoccion + " min";
+            document.body.appendChild(pTiempoCoccion);
+        });
+
+        function create(element, data, destination) {
+            const e = document.createElement(element);
+            e.innerText = data;
+            const destElement = document.querySelector(destination);
+            destElement.appendChild(e);
+        }
+
+
+
+        const vinoContainer = document.getElementById("vinos-container");
+
+                
+                data.forEach(vino => {
+                    const vinoDiv = document.createElement("div");
+                    vinoDiv.classList.add("vino");
+
+                    
+                    const nombre = document.createElement("h2");
+                    nombre.innerText = `Nombre: ${vino.nombre}`;
+                    
+                    const año = document.createElement("p");
+                    año.innerText = `Año: ${vino.año}`;
+                    
+                    const tipo = document.createElement("p");
+                    tipo.innerText = `Tipo: ${vino.tipo}`;
+                    
+                    const precio = document.createElement("p");
+                    precio.innerText = `Precio: $${vino.precio}`;
+                    
+                    vinoDiv.appendChild(nombre);
+                    vinoDiv.appendChild(año);
+                    vinoDiv.appendChild(tipo);
+                    vinoDiv.appendChild(precio);
+
+                    
+                    vinoContainer.appendChild(vinoDiv);
+                });
