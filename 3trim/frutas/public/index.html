@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir fruta</title>
+</head>
+<body>
+    <form id="fruta-form">
+        <label for="fruta">Fruta: </label>
+        <input type="text" id="fruta" name="fruta" required>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <ul id="lista-frutas"></ul>
+
+    <script>
+        const formulario = document.querySelector('#fruta-form');
+        const listaFrutas = document.querySelector('#lista-frutas'); 
+
+        // Diccionario de frutas con emojis
+        const frutasDiccionario = {
+            "manzana": "🍎",
+            "pera": "🍐",
+            "platano": "🍌",
+            "uva": "🍇",
+            "sandia": "🍉"
+        }
+
+        // Función para cargar las frutas y mostrar los emojis
+        function obtenerFrutas() {
+            listaFrutas.innerHTML = ""; // Limpiar la lista antes de agregar las frutas
+            fetch("/frutas")
+                .then(response => response.json())
+                .then(frutas => {
+                    frutas.forEach(fruta => {
+                        const li = document.createElement("li");
+                        // Mostrar el emoji si existe en el diccionario
+                        li.innerText = frutasDiccionario[fruta.toLowerCase()] || fruta; // Usar .toLowerCase() para manejar mayúsculas
+                        listaFrutas.appendChild(li);
+                    });
+                })
+                .catch(error => {
+                    console.error("Error al obtener las frutas:", error);
+                });
+        }
+
+        // Llamar a la función para cargar las frutas al inicio
+        obtenerFrutas();
+
+        // Manejar el evento submit del formulario
+        formulario.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const fruta = document.querySelector("#fruta").value.trim(); // Eliminar espacios al principio y al final
+            if (!fruta) return; // Si la fruta está vacía, no hacer nada
+
+            console.log(fruta);
+
+            const opciones = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ fruta })
+            };
+
+            // Enviar la fruta al servidor
+            fetch("/frutas", opciones)
+                .then(response => response.json())
+                .then(frutas => {
+                    obtenerFrutas(); // Volver a cargar la lista de frutas con emojis
+                })
+                .catch(error => {
+                    console.error("Error al agregar la fruta:", error);
+                });
+        });
+    </script>
+</body>
+</html>
+
